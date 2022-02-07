@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block title %} Удаление поставщика {% endblock title %}
+
+
+{% block content %}
+                
+    <form method="post">
+        
+        {% csrf_token %}
+        
+        <fieldset class="form-group">
+            <div style="color:#ea2088; font-style: bold; font-size: 3rem; border-bottom: 1px solid white;">Удалить поставщика</div> <br>
+            <h2>Вы уверены в том, что хотите удалить информацию о поставщике? "{{ object.name }}"?</h2>
+        </fieldset>
+
+        <div class="form-group">  
+            <button type="submit" class="btn ghost-red">Да, удалить</button>
+            <a href="{% url 'suppliers-list' %}" class="btn ghost-button">Отмена</a>
+        </div>
+        
+    </form>
+
+{% endblock content %}
