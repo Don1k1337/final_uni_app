@@ -16,14 +16,17 @@
                 <div class="row">
                     <div class="col-md-6">
                         <p class="fal">
-                            Контактный телефон &nbsp; : {{ supplier.phone }} <br>
-                            Email &nbsp;&nbsp;&nbsp;&nbsp; : {{ supplier.email }} <br>
+                            Контактный телефон: &nbsp; <br>
+                            {{ supplier.phone }} <br>
+                            Email:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                            {{ supplier.email }} <br>
 {#                            GSTIN No &nbsp; : {{ supplier.gstin }} <br>#}
                         </p>
                     </div>
                     <div class="col-md-6">
                         <p class="fal">
-                            Адрес: <br> {{ supplier.address|linebreaks }}
+                            Адрес: <br>
+                            {{ supplier.address}}
                         </p>
                     </div>
                 </div>
@@ -37,12 +40,12 @@
         
         <thead class="thead-inverse align-middle">
             <tr>
-                <th width="10%">Bill No</th>
-                <th width="15%">Stocks Purchased</th>
-                <th width="15%">Quantity Purchased</th>
-                <th width="15%">Total Purchased Price</th>
-                <th width="15%">Purchased Date</th>
-                <th width="30%">Options</th>
+                <th width="10%">№</th>
+                <th width="15%">Наименование</th>
+                <th width="15%">Кол-во</th>
+                <th width="15%">Итоговая стоимость</th>
+                <th width="15%">Дата</th>
+{#                <th width="30%">Опции</th>#}
             </tr>
         </thead>
       

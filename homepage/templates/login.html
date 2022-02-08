@@ -25,7 +25,7 @@
 <body>
 
 <div class="align-middle" style="color: #ea2088; font-style: bold; font-size: 3rem;">WoW CRM</div>
-<div class="align-middle" style="color: #fff">An Inventory Management System</div>
+<div class="align-middle" style="color: #fff">Система по учету расходного материала</div>
 <br><br><br>
 
 <div class="row d-flex justify-content-center">
@@ -33,10 +33,10 @@
         {% if user.is_authenticated %}
             
             <br><br>
-            <h2 class="align-middle">You are already logged in, {{ request.user.username }}!</h2>
+            <h2 class="align-middle">Вы уже вошли в систему, {{ request.user.username }}!</h2>
             <div class="border-top pt-3 align-middle"> <br>
-                <a class="btn ghost-blue" href="{% url 'home' %}">Go back home</a> <br><br>
-                <a class="btn ghost-red" href="{% url 'logout' %}">Log Out</a>
+                <a class="btn ghost-blue" href="{% url 'home' %}">Вернуться на главную</a> <br><br>
+                <a class="btn ghost-red" href="{% url 'logout' %}">Выйти</a>
             </div>
         
         {% else %}
@@ -45,12 +45,12 @@
                 <form method="POST">
                     {% csrf_token %}
                     <fieldset class="form-group">
-                        <div class="align-middle"><legend class="border-bottom mb-4">Please Login to use WoW CRM</legend></div>
+                        <div class="align-middle"><legend class="border-bottom mb-4">Пожалуйста авторизуйтесь для использования WoW CRM</legend></div>
                         {{ form|crispy }}
                     </fieldset>
                     <div class="form-group">
                         <div class="align-middle"> 
-                            <button class="ghost-pink" type="submit">Log In</button>         
+                            <button class="ghost-pink" type="submit">Авторизоваться</button>
                             {# <button class="ml-2 ghost-red">Exit</button> #}
                         </div>
                     </div>
