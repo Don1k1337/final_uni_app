@@ -69,7 +69,7 @@
 
 
     <!-- Loading Chart JS -->
-    <script src="{% static 'js/Chart.min.js' %}"></script>  
+    <script src="{% static 'js/Chart.min.js' %}"></script>
     <script>
         Chart.defaults.global.defaultFontColor = '#fff';
 
@@ -79,6 +79,7 @@
             data: {
                 datasets: [{
                     backgroundColor: '#5dc245',
+                    barPercentage: 0.3,
                     label: 'Доступные материалы на складе',
                     data: {{ data|safe }},
                 }],
@@ -87,6 +88,21 @@
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                scales: {
+
+            yAxes: [{
+            ticks: {
+
+                   min: 0,
+                   max: 100,
+                   callback: function(value){return value+ "%"}
+                },
+								scaleLabel: {
+                   display: true,
+                   labelString: "Процентовка"
+                }
+            }]
+        }
             },
         };
 
@@ -98,5 +114,4 @@
         };
 
     </script>
-
 {% endblock content %}

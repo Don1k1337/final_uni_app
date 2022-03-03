@@ -39,7 +39,7 @@ class SupplierCreateView(SuccessMessageMixin, CreateView):
     model = Supplier
     form_class = SupplierForm
     success_url = '/transactions/suppliers'
-    success_message = "Поставщик был успешно удален из списка"
+    success_message = "Поставщик был успешно добавлен в список поставщиков"
     template_name = "suppliers/edit_supplier.html"
     
     def get_context_data(self, **kwargs):

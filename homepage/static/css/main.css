@@ -19,7 +19,7 @@
 body,
 html {
   height: 100%;
-  background-color: #000000;
+  background-color: #181313;
 }
 
 .form-group{
@@ -57,7 +57,7 @@ ol,li,a:hover{
 }
 
 .navbar-collapse > .navbar-nav { 
-  background-color: #000000; 
+  background-color: #000000;
 }
 
 
