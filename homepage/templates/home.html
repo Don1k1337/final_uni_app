@@ -8,7 +8,7 @@
 
 {% block content %}
 
-    <div style="color:#ea2088; font-style: bold; font-size: 3rem; border-bottom: 1px solid #fff">Добро пожаловать, {{ request.user.username }}!</div>
+    <div style="color:#ffffff; font-style: bold; font-size: 3rem; border-bottom: 1px solid #fff">Добро пожаловать, {{ request.user.username }}!</div>
 
     <br>
 
@@ -49,7 +49,7 @@
 {#            </div>#}
 
             <div class="col-md-6">
-                <div style="color:#3d61ea; font-style: bold; font-size: 1.3em; border-bottom: 2px solid #fff">Недавние закупки</div><br>
+                <div style="color:#ffffff; font-style: bold; font-size: 1.3em; border-bottom: 2px solid #fff">Недавние закупки</div><br>
                 {% for item in purchases %}
                     {% if not forloop.first %}
                         <br><div style="border-bottom: 0.5px solid #fff"></div><br>

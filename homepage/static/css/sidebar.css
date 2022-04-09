@@ -17,7 +17,7 @@
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #37bd6c;
+    background: #222a94;
     color: #fff;
     transition: all 0.3s;
 }
@@ -28,12 +28,12 @@
 
 .sidebar-header {
     padding: 20px;
-    background: #0ca245;
+    background: #222a94;
 }
 
 .sidebar-components {
     padding: 20px 0;
-    border-bottom: 1px solid #37bd6c;
+    border-bottom: 1px solid #222a94;
 }
 
 .sidebar-paragraph {
