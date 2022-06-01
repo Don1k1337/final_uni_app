@@ -60,14 +60,14 @@ a.right-arrow[data-toggle="collapse"] {
 }
 
 .sidebar-button:hover {
-    color: #3d61ea;
-    background: #37bd6c;
+    color: black;
+    background: #3d61ea;
 }
 
 .sidebar-subitem {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #37bd6c;
+    background: #3d61ea;
 }
 
 ul.CTAs {

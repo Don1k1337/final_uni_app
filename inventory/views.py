@@ -8,7 +8,7 @@ import io
 
 from django.views.generic import (
     View,
-    CreateView, 
+    CreateView,
     UpdateView
 )
 from django.contrib.messages.views import SuccessMessageMixin
@@ -26,28 +26,29 @@ class StockListView(FilterView):
     paginate_by = 10
 
 
-class StockCreateView(SuccessMessageMixin, CreateView):                                 # createview class to add new stock, mixin used to display message
-    model = Stock                                                                       # setting 'Stock' model as model
-    form_class = StockForm                                                              # setting 'StockForm' form as form
-    template_name = "edit_stock.html"                                                   # 'edit_stock.html' used as the template
-    success_url = '/inventory'                                                          # redirects to 'inventory' page in the url after submitting the form
-    success_message = "Информация о новом материале была успешно добавлена"                             # displays message when form is submitted
+class StockCreateView(SuccessMessageMixin,
+                      CreateView):  # createview class to add new stock, mixin used to display message
+    model = Stock  # setting 'Stock' model as model
+    form_class = StockForm  # setting 'StockForm' form as form
+    template_name = "edit_stock.html"  # 'edit_stock.html' used as the template
+    success_url = '/inventory'  # redirects to 'inventory' page in the url after submitting the form
+    success_message = "Информация о новом материале была успешно добавлена"  # displays message when form is submitted
 
-    def get_context_data(self, **kwargs):                                               # used to send additional context
+    def get_context_data(self, **kwargs):  # used to send additional context
         context = super().get_context_data(**kwargs)
         context["title"] = 'Добавить информацию о новом материале'
         context["savebtn"] = 'Добавить'
-        return context       
+        return context
 
 
-class StockUpdateView(SuccessMessageMixin, UpdateView):                                 # updateview class to edit stock, mixin used to display message
-    model = Stock                                                                       # setting 'Stock' model as model
-    form_class = StockForm                                                              # setting 'StockForm' form as form
-    template_name = "edit_stock.html"                                                   # 'edit_stock.html' used as the template
-    success_url = '/inventory'                                                          # redirects to 'inventory' page in the url after submitting the form
-    success_message = "Информация о материале была обновлена успешно"                             # displays message when form is submitted
+class StockUpdateView(SuccessMessageMixin, UpdateView):  # updateview class to edit stock, mixin used to display message
+    model = Stock  # setting 'Stock' model as model
+    form_class = StockForm  # setting 'StockForm' form as form
+    template_name = "edit_stock.html"  # 'edit_stock.html' used as the template
+    success_url = '/inventory'  # redirects to 'inventory' page in the url after submitting the form
+    success_message = "Информация о материале была обновлена успешно"  # displays message when form is submitted
 
-    def get_context_data(self, **kwargs):                                               # used to send additional context
+    def get_context_data(self, **kwargs):  # used to send additional context
         context = super().get_context_data(**kwargs)
         context["title"] = 'Изменить информацию о расходном материале'
         context["savebtn"] = 'Обновить'
@@ -55,20 +56,21 @@ class StockUpdateView(SuccessMessageMixin, UpdateView):                         
         return context
 
 
-class StockDeleteView(View):                                                            # view class to delete stock
-    template_name = "delete_stock.html"                                                 # 'delete_stock.html' used as the template
-    success_message = "Информация о материале была успешно удалена"                             # displays message when form is submitted
-    
+class StockDeleteView(View):  # view class to delete stock
+    template_name = "delete_stock.html"  # 'delete_stock.html' used as the template
+    success_message = "Информация о материале была успешно удалена"  # displays message when form is submitted
+
     def get(self, request, pk):
         stock = get_object_or_404(Stock, pk=pk)
-        return render(request, self.template_name, {'object' : stock})
+        return render(request, self.template_name, {'object': stock})
 
-    def post(self, request, pk):  
+    def post(self, request, pk):
         stock = get_object_or_404(Stock, pk=pk)
         stock.is_deleted = True
-        stock.save()                                               
+        stock.save()
         messages.success(request, self.success_message)
         return redirect('inventory')
+
 
 def export_excel_av_items(request):
     response = HttpResponse(content_type='application/ms-excel')
@@ -79,7 +81,7 @@ def export_excel_av_items(request):
     font_style = xlwt.XFStyle()
     font_style.font.bold = True
 
-    columns= ['Наименование расходного материала', 'Количество']
+    columns = ['Наименование расходного материала', 'Количество']
 
     for col_num in range(len(columns)):
         ws.write(row_num, col_num, columns[col_num], font_style)
@@ -97,3 +99,4 @@ def export_excel_av_items(request):
     wb.save(response)
 
     return response
+
