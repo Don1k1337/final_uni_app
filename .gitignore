@@ -4,6 +4,10 @@
 #migrations, you can auto generate them using makemigrations and migrate commands
 **/migrations/**
 
+## idea
+.idea
+/idea
+./idea
 
 # Created by https://www.gitignore.io/api/django
 # Edit at https://www.gitignore.io/?templates=django
